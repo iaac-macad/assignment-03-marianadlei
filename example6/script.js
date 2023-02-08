@@ -5,16 +5,16 @@ import { Rhino3dmLoader } from 'three/addons/loaders/3DMLoader.js'
 import rhino3dm from 'rhino3dm'
 import { RhinoCompute } from 'rhinocompute'
 
-const definitionName = "rnd_node_color.gh";
+const definitionName = "Spiral01.gh";
 
 // Set up sliders
-const radius_slider = document.getElementById("radius");
-radius_slider.addEventListener("mouseup", onSliderChange, false);
-radius_slider.addEventListener("touchend", onSliderChange, false);
+const spirals_slider = document.getElementById("spirals");
+spirals_slider.addEventListener("mouseup", onSliderChange, false);
+spirals_slider.addEventListener("touchend", onSliderChange, false);
 
-const count_slider = document.getElementById("count");
-count_slider.addEventListener("mouseup", onSliderChange, false);
-count_slider.addEventListener("touchend", onSliderChange, false);
+const height_slider = document.getElementById("height");
+height_slider.addEventListener("mouseup", onSliderChange, false);
+height_slider.addEventListener("touchend", onSliderChange, false);
 
 const loader = new Rhino3dmLoader();
 loader.setLibraryPath("https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/");
@@ -24,7 +24,7 @@ rhino3dm().then(async (m) => {
   console.log("Loaded rhino3dm.");
   rhino = m; // global
 
-  RhinoCompute.url = "http://localhost:5000/"; //if debugging locally.
+  RhinoCompute.url = "http://localhost:8081/"; //if debugging locally.
 
   // load a grasshopper file!
 
@@ -39,11 +39,11 @@ rhino3dm().then(async (m) => {
 });
 
 async function compute() {
-  const param1 = new RhinoCompute.Grasshopper.DataTree("Radius");
-  param1.append([0], [radius_slider.valueAsNumber]);
+  const param1 = new RhinoCompute.Grasshopper.DataTree("Spirals");
+  param1.append([0], [spirals_slider.valueAsNumber]);
 
-  const param2 = new RhinoCompute.Grasshopper.DataTree("Count");
-  param2.append([0], [count_slider.valueAsNumber]);
+  const param2 = new RhinoCompute.Grasshopper.DataTree("Heightt");
+  param2.append([0], [height_slider.valueAsNumber]);
 
   // clear values
   const trees = [];

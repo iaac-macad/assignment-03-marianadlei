@@ -21,7 +21,7 @@ rhino3dm().then(async m => {
     console.log('Loaded rhino3dm.')
     rhino = m // global
 
-    RhinoCompute.url = 'http://localhost:8081/' //if debugging locally.
+    RhinoCompute.url = 'http://localhost:5000/' //if debugging locally.
 
     // load a grasshopper file!
     const url = definitionName

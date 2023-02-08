@@ -117,7 +117,7 @@ async function compute () {
     //RhinoCompute.apiKey = getAuth( 'RHINO_COMPUTE_KEY' )  // RhinoCompute server api key. Leave blank if debugging locally.
 
     // local 
-    RhinoCompute.url = 'http://localhost:8081/' // Rhino.Compute server url
+    RhinoCompute.url = 'http://localhost:5000' // Rhino.Compute server url
 
 
     // get meshes from rhino doc
